@@ -1,0 +1,197 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+li {
+	list-style-type: none;
+}
+
+input[type=checkbox] {
+	width: auto;
+	height: auto;
+	vertical-align: middle;
+}
+
+table.infosection {
+	width: 100%;
+	border-collapse: collapse;
+	border-top: 1px dotted #4f4f4f;
+	border-width: 1px 0px 1px 0px;
+}
+
+table.infosection tr td {
+	border-bottom: 1px dotted #4f4f4f;
+}
+
+
+table.infosection tr td.list li {
+	display: inline-block;
+}
+
+.infosection03 textarea,
+.infosection02 textarea {
+	border: 1px solid #bbb;
+	border-radius: 5px;
+	resize: vertical;
+	overflow: auto;
+	max-width: 100%;
+	width: 90%;
+}
+
+.infosection03 textarea:focus {
+	outline: none;
+}
+
+.infosection03 input,
+.infosection02 input,
+.infosection02 select {
+
+	border: 1px solid #bbb;
+	padding: 5px 1% 3px;
+	border-radius: 5px;
+}
+
+.infosection03 input:focus,
+.infosection02 input:focus,
+.infosection02 select:focus {
+	outline: none;
+}
+
+.infosection02 input {
+	max-width: 50vw;
+	margin: 2px 0;
+	line-height: 24px;
+	padding: 0 5px;
+}
+
+
+.infosection02 select {
+	max-width: 58vw;
+}
+
+.infosection03 label input,
+.infosection02 label input {
+	width: auto;
+	max-width: none;
+
+}
+
+.daikou {
+	background: rgba(177, 153, 89, 0.2);
+	padding: 10px;
+	vertical-align: middle;
+}
+
+.daikou textarea {
+	width: 90%;
+}
+
+/*-----▼tableの色変更▼ ---*/
+.infosection01 {
+	/* background-color: rgba(177, 153, 89, 0.2); */
+	background-color: #efebde; /* 変更後 */
+	font-size: 90%;
+	color: #4f4f4f;
+	padding: 10px 0;
+}
+
+.infosection01 img,
+.infosection01 p {
+	padding: 0 15px;
+}
+
+.infosection02 {
+	padding: 7px 5px 7px 15px;
+	background-color: #fff;
+	width: 600px;
+}
+
+.infosection03 {
+	padding: 10px 5px 10px 15px;
+	/*width:300px;*/
+	background-color: #fff;
+	width: auto;
+}
+
+.infosection04 {
+	padding: 5px 5px 5px 0px;
+	background: #FFF;
+	font-size: 90%;
+}
+
+.mfp textarea {
+	width: 80%;
+	height: 55px;
+}
+
+dl.dl_table_two dt p {
+	line-height: 1.5;
+}
+
+dl.dl_table_two dd.list li {
+	display: inline-block;
+}
+
+.accordion_contents2,
+.accordion_contents3 {
+	/* 試し刷りで、2,3種類目を最初は隠す*/
+	display: none;
+}
+
+.must_accordion2,
+.must_accordion3 {
+	display: none;
+}
+
+
+@media screen and (max-width: 580px) {
+	/* --- SP --- */
+
+	/* ====== FormTB ====== */
+
+	td.infosection01 {
+		padding: 10px 0;
+	}
+
+	.infosection01 img,
+	.infosection01 p {
+		padding: 10px;
+	}
+
+	.infosection02 {
+		padding: 10px;
+		width: 75%;
+	}
+
+	.infosection02 dd,
+	.infosection02 ul,
+	.infosection02 p,
+	.infosection03 dd {
+		padding: 10px;
+	}
+
+	.infosection03 {
+		padding: 0;
+		width: 75%;
+	}
+
+
+	.infosection04 {
+		padding: 5px 5px 5px 15px;
+
+	}
+
+	.text_caution {
+		font-size: 2.7vw;
+		color: #909090;
+		font-weight: nomal;
+		text-align: left;
+
+	}
+
+	mfp textarea {
+		width: 80%;
+		height: 60px;
+	}
+
+}

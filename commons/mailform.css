@@ -1,0 +1,436 @@
+@charset "UTF-8";
+
+/*//////////////////////////////////////////////////*/
+/*// 01.�x�[�X�̐ݒ�                              //*/
+/*//////////////////////////////////////////////////*/
+
+form#mailform {
+	margin: 0px auto 0px auto;
+	padding: 0px 0px 50px 0px;
+}
+
+form#mailform label {
+	
+	display: block;
+	padding: 5px 5px;
+	margin-bottom: 1px;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+}
+
+div#mailfrom_hidden_object {
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+div#mailfrom_hidden_object input {
+	margin: 10px;
+}
+div#mfp_closed {
+	display: none;
+}
+div.mfp_disp {
+	display: none;
+}
+div#input_time_disp {
+	padding: 10px;
+}
+div#expires_time_disp {
+	padding: 10px;
+	text-align: center;
+}
+div#expires_time_disp strong {
+	font-size: 18px;
+	color: #CC0000;
+}
+div#limit_disp {
+	padding: 10px;
+	text-align: center;
+}
+div#limit_disp strong {
+	font-size: 24px;
+	color: #CC0000;
+}
+img.must {
+	width: 30px;
+	height: 16px;
+	float: left;
+	margin: 0px 0px 5px 0px;
+}
+input.mfp {
+	background: none repeat scroll 0 0 #ffffff;
+	border: 1px solid #d5c1c0;
+	height: 25px;
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 5px;
+	margin-bottom: 5px;
+	font-size: 16px;
+	/*font-size: 12px;*/
+	line-height:1.5em;
+	font-family:"Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+}
+
+select.mfp {
+	background: none repeat scroll 0 0 #ffffff;
+	border: 1px solid #d5c1c0;
+	height: 30px;
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 5px;
+	margin-bottom: 5px;
+}
+
+textarea .mfp {
+	padding: 5px;
+	 background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #d5c1c0;
+	font-size: 16px;
+	/*font-size: 12px;*/
+    font-family:"Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+	
+}
+.input02 {
+	font-size: 16px;
+	/*font-size: 12px;*/
+	line-height:1.5em;
+	font-family:"Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+	height: 25px;
+	
+}
+.text_contact{
+	font-size: 14px;
+	margin: 5px 5px 5px 0px;
+	line-height:1.5em;
+	text-align : left;
+	color: #3f3f3f;
+
+}
+
+.text_caution{
+	font-size: 12px;
+	color: #909090;
+	font-weight: nomal;
+	text-align : left;
+
+	}
+div.mfp_buttons {
+	padding: 0px;
+	text-align: center;
+}
+
+div.mfp_buttons ul {
+	width: 324px;
+	height: 60px;
+	overflow: hidden;
+	margin: 0px auto 0px auto;
+}
+div.mfp_buttons ul li {
+	width: 162px;
+	height: 54px;
+	overflow: hidden;
+	float: left;
+	margin: 0px auto 0px auto;
+}
+
+input#button_contact {
+	width: 630px;
+	height: 60px;
+	overflow: hidden;
+	background-color: #f6ece4;
+	background-image: url(../images/btn_contact.svg);
+	/*text-indent: -5000px;*/
+	border: none;
+	border-style: none;
+	cursor: pointer;
+	
+
+}
+input#button_mfp_goconfirm {
+	width: 180px;
+	height: 60px;
+	background-color: #FFFFFF;
+	background-image: url(../images/mfp_goconfirm.svg);
+	/*text-indent: -5000px;*/
+	border: none;
+	border-style: none;
+	cursor: pointer;
+	
+
+}
+
+#button_mfp_goconfirm:hover {
+
+	opacity: 0.8;
+	filter: Alpha(opacity=80);
+	-ms-filter: Alpha(opacity=80); 
+}
+input#button_mfp_gosend {
+	width: 162px;
+	height: 54px;
+	overflow: hidden;
+	background-color: #FFFFFF;
+	background-image: url(../images/mfp_gosend.svg);
+	border: none;
+	border-style: none;
+	cursor: pointer;
+
+
+}
+
+#button_mfp_gosend:hover {
+
+	opacity: 0.8;
+	filter: Alpha(opacity=80);
+	-ms-filter: Alpha(opacity=80); 
+}
+input#button_mfp_gocancel {
+	width: 162px;
+	height: 54px;
+	overflow: hidden;
+	background-color: #FFFFFF;
+	background-image: url(../images/mfp_gocancel.svg);
+	border: none;
+	border-style: none;
+	cursor: pointer;
+
+	
+}
+
+#button_mfp_gocancel:hover {
+
+	opacity: 0.8;
+	filter: Alpha(opacity=80);
+	-ms-filter: Alpha(opacity=80); 
+}
+
+
+/*//////////////////////////////////////////////////*/
+
+
+/*//////////////////////////////////////////////////*/
+/*// テーブル設定　　　　　                        //*/
+/*//////////////////////////////////////////////////*/
+table.mailform {
+	width: 100%;
+	padding: 10px;
+}
+table.mailform tr th {
+	padding: 7px 0px 7px 0px;
+	border-bottom: solid 1px #CCCCCC;
+	font-weight: normal;
+	font-size: 12px;
+	text-align: right;
+	width: 160px;
+}
+table.mailform tr th span {
+	font-size: 10px;
+	color: #999999;
+	
+}
+table.mailform tr td {
+	padding: 7px 10px 7px 10px;
+	border-bottom: solid 1px #CCCCCC;
+	font-size: 12px;
+}
+table.mailform tr td ul li,table.mailform tr td ul,table.mailform tr td ol,table.mailform tr td ol li {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+table.mailform tr td ul li {
+	float: left;
+	padding: 0px 10px 0px 0px;
+}
+table.mailform tr td p,table.mailform tr td div,table.mailform tr td span {
+	clear: both;
+}
+
+div.buttons {
+	margin: 0px auto 0px auto;
+}
+
+div#twex {
+	margin: 0px;
+	overflow: hidden;
+	z-index: 100;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	text-align: center;
+	background-color: #000000;
+	filter: alpha(opacity=60);
+	-moz-opacity: 0.60;
+	-khtml-opacity: 0.60;
+	opacity: 0.60;
+}
+img#loading_proccess_image {
+	position: absolute;
+	z-index: 1000;
+}
+/*//////////////////////////////////////////////////*/
+
+input,textarea,select {
+	font-size: 100%;
+}
+
+dl.mailform {
+	padding: 0px 0px;
+	margin: 0px;
+}
+
+dl.mailform dt {
+	float: left;
+	clear: both;
+	font-size: 100%;
+	text-align: left;
+	font-weight: normal;
+	padding: 5px 20px 0px 20px;
+	margin: 0px;
+}
+dl.mailform dt img {
+	float: right;
+}
+dl.mailform dt span {
+	display: none;
+	font-size: 10px;
+	color: #999999;
+}
+dl.mailform dd {
+	padding: 60px 20px 15px 20px;
+	border-bottom: solid 1px #CCCCCC;
+	font-size: 12px;
+	margin: 0px;
+	text-align: left;
+}
+dl.mailform dd ul,dl.mailform dd ol {
+	margin: 0px;
+	padding: 0px;
+}
+dl.mailform dd ul li,dl.mailform dd ol li {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+dl.mailform dd ul li {
+	/*float: left;*/
+	padding: 0px 10px 0px 0px;
+}
+
+/*// Phase Input Style //*/
+
+div.mfp_phase_section,div#mfp_phase_confirm {
+	display: none;
+	margin: 0px;
+	clear: both;
+	background-color: #FFF;
+	margin: 0px 5px;
+	
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	overflow: hidden;
+	
+}
+p.mfp_caption {
+	margin: 10px;
+}
+
+.mfp_color {
+	background-color: #f8f8f8;
+	border-top: 1px dotted #3f3f3f;
+	border-bottom: 1px dotted #3f3f3f;
+}
+
+div#mfp_phase_confirm {
+	display: none;
+	
+}
+
+div#mfp_phase_confirm table tr th {
+	text-align: left;
+	width: 30%;
+}
+
+.form_indent{
+	margin-left: 20px;
+}
+.popupkraft {
+    z-index: 99;
+    position: absolute;
+    margin: 0px;
+    text-align: center;
+    color: #fff;
+    
+    width: 200px;
+    height: 240px;
+    bottom: 60px;   
+	left: 18px;
+    display: none;
+    
+}
+
+.smplegrid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px 5px;
+	margin: 5px;
+}
+
+.hover {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: auto;
+}
+
+.hover .hover-img {
+	margin: 0;
+	padding: 0;
+}
+
+.hover .hover-text {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.5);
+	opacity: 0;
+	transition: .3s ease-in-out;
+}
+
+.hover .hover-text .text-area {
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: 1px solid #fff;
+	padding: 8px 24px;
+}
+
+.hover:hover .hover-text {
+	opacity: 1;
+	padding-top: 10px;
+} 
+
+.selectpaperimg {
+	width: 100%!important;
+}
+
+.selectpaper .text_contact {
+    font-size: 84%;
+}
+
+
+@media screen and (max-width:767px) {/*タブレット時の必須マーク対策*/
+	.pc-nomi{
+		display: none;
+	}
+}

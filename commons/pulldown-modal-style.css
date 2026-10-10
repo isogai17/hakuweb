@@ -1,0 +1,372 @@
+/* ========================================
+   全体・フォーム関連
+======================================== */
+.form-test {
+  text-align: center;
+}
+
+.is-hide {
+  display: none !important;
+}
+
+.paper-type {
+  text-align: left;
+}
+
+/* ========================================
+   モーダル関連
+======================================== */
+.modal-wrap01 {
+  display: none;
+}
+
+.modal-title {
+  margin: 0;
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+  font-size: 1.2rem;
+}
+
+.title-bold .modal-title {
+  font-weight: bold;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+  border-top: 1px solid #dee2e6;
+}
+
+.modaal-container {
+  position: fixed !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  margin: auto;
+  text-align: left;
+  color: #000;
+  max-width: 1000px !important;
+  max-height: 85%;
+  overflow: auto;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+}
+
+.modaal-content-container {
+  width: 100%;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  background: #6c757d;
+  border: 1px solid #6c757d;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: 0.15s;
+  opacity: 1;
+}
+
+.btn:hover {
+  background: #5a6268;
+  border-color: #545b62;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+/* 用紙カード・選択ボタン */
+.paper-title {
+  text-align: left;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.paper-price-number {
+  text-align: left;
+  font-size: 5px;
+  padding-bottom: 8px;
+  border-bottom: 2px dotted #6c757d;
+}
+
+.paper-explanation {
+  text-align: left;
+  font-size: 10px;
+}
+
+.paper-select-btn {
+  text-align: center;
+  padding: 5px 15px;
+  background: transparent;
+  outline: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+  border: 1px solid rgb(0, 0, 0);
+  z-index: 1;
+  color: black;
+}
+
+.paper-select-btn:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  direction: rtl;
+  z-index: -1;
+  background: rgb(0, 0, 0);
+  transition: all 0.3s ease;
+}
+
+.paper-select-btn:hover {
+  color: rgb(255, 255, 255);
+}
+
+.paper-select-btn:hover:after {
+  left: auto;
+  right: 0;
+  width: 100%;
+}
+
+.paper-select-btn:active {
+  top: 2px;
+}
+
+/* ================================= realm
+   フィルター枠・レイアウト
+======================================== */
+.filter_large {
+  border: 1px solid #000000;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  margin-bottom: 50px;
+  padding: 10px;
+}
+
+.filter_groups {
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.filter_groups:last-child {
+  border-bottom: none;
+}
+
+.filter-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 20px;
+}
+
+.search-box_label {
+  display: block;
+  width: 150px;
+  min-width: 150px;
+  flex-shrink: 0;
+  font-weight: bold;
+  white-space: nowrap;
+  padding-top: 5px;
+}
+
+/* ボタン群 */
+.filters {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filters * {
+  display: inline-block;
+}
+
+.filters label {
+  display: block;
+  text-align: center;
+  padding: 4px 8px;
+  min-width: 56px;
+  line-height: normal;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.filters label:hover {
+  background: #333;
+  color: #fff;
+}
+
+/* ボタン各種カラーバリエーション */
+.filters .tab-gray {
+  background-color: #afafb0;
+  color: #fff;
+}
+
+.filters .tab-kraft {
+  background-color: #b98c46;
+  color: #fff;
+}
+
+.filters .tab-black {
+  background-color: #000000;
+  color: #fff;
+}
+
+.filters .tab-red {
+  background-color: #c9171e;
+  color: #fff;
+}
+
+.filters .tab-blue {
+  background-color: #003f8e;
+  color: #fff;
+}
+
+.filters .tab-purple {
+  background-color: #6600cc;
+  color: #fff;
+}
+
+.filters .tab-green {
+  background-color: #00552e;
+  color: #fff;
+}
+
+.filters .tab-orange {
+  background-color: #ec6800;
+  color: #fff;
+}
+
+.filters .tab-ivory {
+  background-color: #f8f4e6;
+  color: #000000;
+}
+
+.filters .tab-transparent {
+  background-color: #E0F9FF;
+  color: #000000;
+}
+
+.filters .tab-metallic {
+  background: linear-gradient(to bottom, #FFFFFF 0%, #A8A9AD 40%, #8C8D91 100%);
+  color: #fff;
+}
+
+.filters .tab-quality,
+.filters .tab-all,
+.filters .tab-asort {
+  background-color: #fff;
+  color: #000000;
+}
+
+
+/* ========================================
+   選択中ボタン（赤枠点滅 ＋ 影付きアニメーション）
+======================================== */
+[data-base-id="AllColor"]:checked~.filter-row .filters [data-base-for="AllColor"],
+[data-base-id="Gray"]:checked~.filter-row .filters [data-base-for="Gray"],
+[data-base-id="Kraft"]:checked~.filter-row .filters [data-base-for="Kraft"],
+[data-base-id="Black"]:checked~.filter-row .filters [data-base-for="Black"],
+[data-base-id="Red"]:checked~.filter-row .filters [data-base-for="Red"],
+[data-base-id="Blue"]:checked~.filter-row .filters [data-base-for="Blue"],
+[data-base-id="Purple"]:checked~.filter-row .filters [data-base-for="Purple"],
+[data-base-id="Green"]:checked~.filter-row .filters [data-base-for="Green"],
+[data-base-id="Orange"]:checked~.filter-row .filters [data-base-for="Orange"],
+[data-base-id="Ivory"]:checked~.filter-row .filters [data-base-for="Ivory"],
+[data-base-id="Transparent"]:checked~.filter-row .filters [data-base-for="Transparent"],
+[data-base-id="Metallic"]:checked~.filter-row .filters [data-base-for="Metallic"],
+[data-base-id="Asort"]:checked~.filter-row .filters [data-base-for="Asort"],
+[data-base-id="AllQUALITY"]:checked~.filter-row .filters [data-base-for="AllQUALITY"],
+[data-base-id="High"]:checked~.filter-row .filters [data-base-for="High"],
+[data-base-id="Mat"]:checked~.filter-row .filters [data-base-for="Mat"],
+[data-base-id="Luster"]:checked~.filter-row .filters [data-base-for="Luster"],
+[data-base-id="FoilGood"]:checked~.filter-row .filters [data-base-for="FoilGood"],
+[data-base-id="FoilAll"]:checked~.filter-row .filters [data-base-for="FoilAll"],
+[data-base-id="PPPETGood"]:checked~.filter-row .filters [data-base-for="PPPETGood"],
+[data-base-id="PPPETAll"]:checked~.filter-row .filters [data-base-for="PPPETAll"] {
+  border-color: #e60000;
+  box-shadow:
+    inset 0 0 0 1px #e60000,
+    0 2px 4px rgba(230, 0, 0, 0.3);
+  transform: translateY(-1px);
+  /* forwards を追加してアニメーション終了後も最終状態（赤枠）を保持 */
+  animation: selected-blink 0.4s ease-in-out 3 forwards;
+}
+
+@keyframes selected-blink {
+  0% {
+    border-color: #000000;
+    box-shadow:
+      inset 0 0 0 1px transparent,
+      0 0 0 rgba(230, 0, 0, 0);
+  }
+
+  50% {
+    border-color: #e60000;
+    box-shadow:
+      inset 0 0 0 1px #e60000,
+      0 4px 8px rgba(230, 0, 0, 0.6);
+  }
+
+  100% {
+    border-color: #e60000;
+    box-shadow:
+      inset 0 0 0 1px #e60000,
+      0 2px 4px rgba(230, 0, 0, 0.3);
+  }
+}
+
+
+
+/* ========================================
+   補足テキスト・レスポンシブ
+======================================== */
+.note {
+  padding: 0.2em 0.4em 0.2em;
+  font-size: 10px;
+  line-height: 3em;
+  border: 2px solid rgba(177, 153, 89, 0.8);
+  border-radius: 3px;
+  color: rgba(177, 153, 89, 0.8);
+}
+
+.note4 {
+  padding: 0.2em 0.4em 0.2em;
+  font-size: 10px;
+  line-height: 3em;
+  border: 2px solid rgba(177, 153, 89, 0.8);
+  color: #fff;
+  font-family: futura-pt, "tot-shizukago-stdn";
+  font-weight: 500;
+  background-color: rgba(177, 153, 89, 0.8);
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 581px) {
+  .modaal-container {
+    width: 96% !important;
+    max-width: unset !important;
+  }
+
+  .search-box_label {
+    width: 100px;
+    min-width: 100px;
+    white-space: normal;
+  }
+}
