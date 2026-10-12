@@ -344,14 +344,14 @@ window.prepareOrderProductsForMFP = function () {
   // 加工オプションの確認画面用テキスト
   function updateOptions(block) {
     const pp = block.querySelector('[data-base-name="PP加工・PET加工"]');
-    const cut = block.querySelector('[data-base-name="プロッター・カット加工"]');
+    const cut = block.querySelector('[data-base-name="プロッターカット加工"]');
     const summary = block.querySelector('.mfp-order-summary');
 
     if (summary) {
       summary.value =
         'PP加工・PET加工：' +
         (pp && pp.value ? pp.value : 'なし') +
-        '／プロッター・カット加工：' +
+        '／プロッターカット加工：' +
         (cut && cut.value ? cut.value : 'なし');
     }
   }
@@ -614,7 +614,7 @@ window.installOrderMfpConfirmHook = function () {
 
       // 加工オプションは集約行のみ表示
       // 商品1〜3のhidden値も確認画面では非表示
-      if (/^(?:PP加工・PET加工|プロッター・カット加工|商品)[123]$/.test(key)) {
+      if (/^(?:PP加工・PET加工|プロッターカット加工|商品)[123]$/.test(key)) {
         tr.remove();
       }
     });

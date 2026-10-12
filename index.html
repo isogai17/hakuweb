@@ -54,10 +54,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="datetimepicker-master/jquery.datetimepicker.css" type="text/css" />
 <link rel="stylesheet" href="commons/new_order_style.css" />
 <script type="text/javascript" src="commons/jquery.js" charset="UTF-8"></script>
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
-<script type="text/javascript" src="commons/mailform.js" charset="UTF-8"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
+
 <script type="text/javascript" src="commons/option_type.js" charset="UTF-8"></script>
-<script type="text/javascript" src="commons/new_order.js" charset="UTF-8"></script>
+
 <script type="text/javascript">
 $(function() {
     $('#rdo_23').click(function(){
@@ -107,13 +107,14 @@ $(function() {
 <!-- ============================= -->
 <!-- ▼スクリプトをCDNから読み込む -->
 <!-- ============================= -->
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="http://jpostal.googlecode.com/svn/trunk/jquery.jpostal.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+
 <!-- ================================================== -->
 <!-- ▼郵便番号や各種住所の入力欄に関するID名を指定する -->
 <!-- ================================================== -->
 <script type="text/javascript">
 	$(window).ready( function() {
+		if (typeof $.fn.jpostal !== 'function') return;
 		$('#postcode1').jpostal({
 			postcode : [
 				'#postcode1',
@@ -174,7 +175,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 <header id="top-head">
 	<div class="inner">
     <div id="mobile-head">
-        <div id="overline">
+        <div id="overline_duplicate_2">
         <div class="top-sp">
         <h1 class="logo"><a href="../index.html"><img src="../common/images/logo.svg" height="34" alt="ドット箔プリント(ロゴ)" /></a></h1>
 			<div id="nav-toggle">
@@ -271,7 +272,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 			</dt>
 
 			<dd>
-				<form class="mfp">
+				<div class="mfp">
 					<div id="mfp_el01" class="input02" required="required">
 						<select name="商品" data-base-name="商品" id="pageJump" class="input02" required="required">							
 							<option value="" disabled="disabled">▼選択してください▼</option>
@@ -280,37 +281,18 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 						</select>
 						<div id="errormsg_商品" class="mfp_err"></div>
 					</div>
-				</form>
+				</div>
 			</dd>		
 		</dl>
-		<!-- <script type="text/javascript">  // 商品(mfp_el_product1)プルダウン変更 -> optiontype.js の testprint_chg_opt1 を呼ぶ
-		  var myobj1 = document.getElementById("mfp_el_product1");
-		  myobj1.addEventListener('change', function(){
-			  testprint_chg_opt1(1); // <- (n)はn番目商品の識別用の引数
-		  });
-		</script>
-				<script type="text/javascript"> 
-		  var myobj2 = document.getElementById("mfp_el_product2");
-		  myobj2.addEventListener('change', function(){
-			  testprint_chg_opt1(2); // <- (n)はn番目商品の識別用の引数
-		  });
-		</script>
-		<script type="text/javascript">  
-		  var myobj3 = document.getElementById("mfp_el_product3");
-		  myobj3.addEventListener('change', function(){
-			  testprint_chg_opt1(3); // <- (n)はn番目商品の識別用の引数
-		  });
-		</script> -->
+		<!-- 
+				
+		 -->
 
 			<!-- ▼ 複数商品を展開するコンテナ ▼ -->
-			<div id="products-container"></div>
+			
 
 			<!-- ▼ 商品追加ボタン ▼ -->
-			<div class="add-product-wrapper">
-				<button type="button" id="add-product-btn" class="add-product-btn">
-					＋ 商品を追加する
-				</button>
-			</div>
+			
 
 			<!-- ▼ 共通項目（備考など） ▼ -->
 			<!-- <dl class="dl_table_two dl_border">
@@ -327,13 +309,20 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 			<!-- ========================================== -->
 			<!-- ▼ 商品ブロックのひな形（画面には表示されません） ▼ -->
 			<!-- ========================================== -->
-			<template id="product-template">
-				<div class="product-block">
+			<dl class="dl_table_two dl_border product-count-row">
+				<dt><p class="text_contact" id="product-count-label">件数</p></dt>
+				<dd>
+				<div role="radiogroup" aria-labelledby="product-count-label">
+					<label for="product-count-1"><input type="radio" id="product-count-1" name="件数" data-base-name="件数" value="1件" checked="checked" aria-controls="product-details-2" /> 1件</label>
+					<label for="product-count-2"><input type="radio" id="product-count-2" name="件数" data-base-name="件数" value="2件" aria-controls="product-details-2" /> 2件</label>
+				</div>
+				<noscript><p class="text_caution">2件分の入力にはJavaScriptを有効にしてください。</p></noscript>
+				</dd>
+			</dl>
+
+				<div class="product-details" id="product-details-1">
 					<!-- 商品ヘッダー（見出しと削除ボタン） -->
-					<div class="product-header">
-						<h3 class="product-title" style="display: none;">【商品 1】</h3>
-						<button type="button" class="delete-product-btn">− この商品を削除</button>
-					</div>
+					
 
 					<dl class="dl_table_two dl_border">
 
@@ -377,7 +366,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 			<dd>
 				<div class="mfp">
 					<div id="modal-button" class="input02 modal-_paper-select paper-modal-btn">印刷用紙を選択 ▼</div>
-					<div id="selected-value" class="selected-value-display"></div>
+					
 
 					<!-- 印刷用紙の必須チェックエラー表示 -->
 					<div id="errormsg_印刷用紙" class="mfp_err"></div>
@@ -388,7 +377,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 								<div class="head-hidden">
 									<span class="close">&times;</span>
 									<h2 style="border-top: none; border-bottom: 1px #4f4f4f dotted; padding-bottom: 15px; margin-left: unset">印刷用紙:</h2>
-									<form style="overflow: auto">
+									<div style="overflow: auto">
 										<div class="filter_large">
 											<!-- ▼ 1つ目のグループ（色） -->
 											<div class="filter_groups">
@@ -472,7 +461,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 												</div>
 											</div>
 										</div>
-									</form>
+									</div>
 									</div>
 									<div class="modal-box">
 										<div class="grid-auto-fill-wrap">
@@ -482,7 +471,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 												<!-- ================================================== -->
 												<!-- ■プライク(アソート) -->
 												<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" required="required" value="プライク 284kg【アソート／濃色7色】" data-size="カード類／A4" data-color="All Asort" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" required="required" value="プライク 284kg【アソート／濃色7色】" data-size="カード類／A4" data-color="All Asort" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/assort/001.png" />
@@ -500,7 +489,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 											</label>
 
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="プライク 284kg【アソート／暖色3色】" data-size="カード類／A4" data-color="All Asort" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="プライク 284kg【アソート／暖色3色】" data-size="カード類／A4" data-color="All Asort" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/assort/001.png" />
@@ -518,7 +507,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 											</label>
 
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="プライク 284kg【アソート／寒色4色】" data-size="カード類／A4" data-color="All Asort" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="プライク 284kg【アソート／寒色4色】" data-size="カード類／A4" data-color="All Asort" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/assort/001.png" />
@@ -537,7 +526,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■ディープマット(アソート) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="ディープマット 265kg【アソート／濃色6色】" data-size="カード類／A4" data-color="All Asort" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="ディープマット 265kg【アソート／濃色6色】" data-size="カード類／A4" data-color="All Asort" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/assort/002.png" />
@@ -559,7 +548,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 											<!-- ================================================== -->
 											<!-- ■カラープラン-FS(ダークグレー) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="カラープラン-FS(ダークグレー) 301kg" data-size="カード類／A4" data-color="All Gray" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="カラープラン-FS(ダークグレー) 301kg" data-size="カード類／A4" data-color="All Gray" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/gray/gray_colorplan02.png" />
@@ -578,7 +567,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■カラープラン-FS(スモークグレー) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="カラープラン-FS(スモークグレー) 301kg" data-size="カード類／A4" data-color="All Gray" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="カラープラン-FS(スモークグレー) 301kg" data-size="カード類／A4" data-color="All Gray" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/gray/gray_colorplan01.png" />
@@ -597,7 +586,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■ケンラン(ディープグレー) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="ケンラン(ディープグレー) 310kg" data-size="カード類／A4" data-color="All Gray" data-kind="Luster" data-foil="Good" data-pppet="Good"/>
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="ケンラン(ディープグレー) 310kg" data-size="カード類／A4" data-color="All Gray" data-kind="Luster" data-foil="Good" data-pppet="Good"/>
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/gray/gray_kenran.png" />
@@ -616,7 +605,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■GAボード-FS(グレー) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="GAボード-FS(グレー) 300kg" data-size="カード類／A4" data-color="All Gray" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="GAボード-FS(グレー) 300kg" data-size="カード類／A4" data-color="All Gray" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/gray/gray_ga-board.png" />
@@ -635,7 +624,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■GAファイル(グレー) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="GAファイル(グレー) 310kg" data-size="カード類／A4" data-color="All Gray" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="GAファイル(グレー) 310kg" data-size="カード類／A4" data-color="All Gray" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/gray/gray_ga-file.png" />
@@ -654,7 +643,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■ディープマット(シャドー) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="ディープマット(シャドー) 265kg" data-size="カード類／A4" data-color="All Gray" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="ディープマット(シャドー) 265kg" data-size="カード類／A4" data-color="All Gray" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/gray/gray_deepmat_01.png" />
@@ -674,7 +663,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■ディープマット(ミストグレー) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="ディープマット(ミストグレー) 265kg" data-size="カード類／A4" data-color="All Gray" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="ディープマット(ミストグレー) 265kg" data-size="カード類／A4" data-color="All Gray" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/gray/gray_deepmat_02.png" />
@@ -693,7 +682,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■ゆるチップF -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="ゆるチップF(いし) 197.5kg" data-size="カード類／A4" data-color="All Gray" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="ゆるチップF(いし) 197.5kg" data-size="カード類／A4" data-color="All Gray" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/gray/gray_yuruchip.png" />
@@ -712,7 +701,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■特AクッションF(グレー) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="特AクッションF(グレー) 0.5mm" data-size="カード類／A4" data-color="All Gray" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="特AクッションF(グレー) 0.5mm" data-size="カード類／A4" data-color="All Gray" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/gray/gray_tokua.png" />
@@ -731,7 +720,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■CLOUD GRAY-F(ニュートラルグレー) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="CLOUD GRAY-F(ニュートラルグレー) 301kg" data-size="カード類／A4" data-color="All Gray" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="CLOUD GRAY-F(ニュートラルグレー) 301kg" data-size="カード類／A4" data-color="All Gray" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/gray/gray_cloudgray-f.png" />
@@ -750,7 +739,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■チップボールF -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="チップボールF 301kg" data-size="カード類／A4" data-color="All Gray" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="チップボールF 301kg" data-size="カード類／A4" data-color="All Gray" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/gray/gray_chipboard.png" />
@@ -769,7 +758,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■GAクラフトボード-FS(シルバーウォール) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="GAクラフトボード-FS(シルバーウォール) 232kg" data-size="カード類／A4" data-color="All Gray" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="GAクラフトボード-FS(シルバーウォール) 232kg" data-size="カード類／A4" data-color="All Gray" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/gray/gray_ga-kraftboard.png" />
@@ -788,7 +777,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■PELP! PAPER -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="PELP! PAPER 172kg" data-size="カード類／A4" data-color="All Gray Ivory" data-kind="High Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="PELP! PAPER 172kg" data-size="カード類／A4" data-color="All Gray Ivory" data-kind="High Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/ivory/ivory_pelppaper.jpg" />
@@ -810,7 +799,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 											<!-- ================================================== -->
 											<!-- ■クラフトリプロライナー -->
 											<!--<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="クラフトリプロライナー 240.5kg" data-size="カード類／A4" data-color="All Kraft" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="クラフトリプロライナー 240.5kg" data-size="カード類／A4" data-color="All Kraft" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/kraft/002.png" />
@@ -829,7 +818,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■モダンクラフト -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="モダンクラフト 197.5kg" data-size="カード類／A4" data-color="All Kraft" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="モダンクラフト 197.5kg" data-size="カード類／A4" data-color="All Kraft" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/kraft/kraft_modernkraft.png" />
@@ -848,7 +837,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■GAクラフトボード-FS(ムーンストーン) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="GAクラフトボード-FS(ムーンストーン) 232kg" data-size="カード類／A4" data-color="All Kraft" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="GAクラフトボード-FS(ムーンストーン) 232kg" data-size="カード類／A4" data-color="All Kraft" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/kraft/kraft_ga-kraftboard01.png" />
@@ -867,7 +856,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■GAクラフトボード-FS(アース) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="GAクラフトボード-FS(アース) 232kg" data-size="カード類／A4" data-color="All Kraft" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="GAクラフトボード-FS(アース) 232kg" data-size="カード類／A4" data-color="All Kraft" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/kraft/kraft_ga-kraftboard02.png" />
@@ -886,7 +875,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■エースボールF -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="エースボールF 301kg" data-size="カード類／A4" data-color="All Kraft" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="エースボールF 301kg" data-size="カード類／A4" data-color="All Kraft" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/kraft/kraft_aceboard.png" />
@@ -905,7 +894,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■GAファイル(キャメル) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="GAファイル(キャメル) 310kg" data-size="カード類／A4" data-color="All Kraft" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="GAファイル(キャメル) 310kg" data-size="カード類／A4" data-color="All Kraft" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/kraft/kraft_ga-file.png" />
@@ -924,7 +913,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■未晒クラフトB -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="未晒クラフトB 266.5kg" data-size="カード類／A4" data-color="All Kraft" data-kind="Luster" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="未晒クラフトB 266.5kg" data-size="カード類／A4" data-color="All Kraft" data-kind="Luster" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/kraft/kraft_mizarashikraft-b.png" />
@@ -943,7 +932,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■未晒クラフトM 225kg-->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="未晒クラフトM 225kg" data-size="カード類／A4" data-color="All Kraft" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="未晒クラフトM 225kg" data-size="カード類／A4" data-color="All Kraft" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/kraft/kraft_mizarashikraft-m.jpg" />
@@ -962,7 +951,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■未晒クラフトM 320kg-->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="未晒クラフトM 320kg" data-size="カード類／A4" data-color="All Kraft" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="未晒クラフトM 320kg" data-size="カード類／A4" data-color="All Kraft" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/kraft/kraft_mizarashikraft-m.jpg" />
@@ -981,7 +970,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■特AクッションF(クラフト) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="特AクッションF(クラフト) 0.5mm" data-size="カード類／A4" data-color="All Kraft" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="特AクッションF(クラフト) 0.5mm" data-size="カード類／A4" data-color="All Kraft" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/kraft/kraft_tokua.jpg" />
@@ -1000,7 +989,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■未晒クラフトD -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="未晒クラフトD 225kg" data-size="カード類／A4" data-color="All Kraft" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="未晒クラフトD 225kg" data-size="カード類／A4" data-color="All Kraft" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/kraft/kraft_mizarashikraft-d.jpg" />
@@ -1019,7 +1008,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■クラフトビールカード-FS -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="クラフトビールカード-FS 266.5kg" data-size="カード類／A4" data-color="All Kraft" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="クラフトビールカード-FS 266.5kg" data-size="カード類／A4" data-color="All Kraft" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/kraft/kraft_kraftbeercard.jpg" />
@@ -1038,7 +1027,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■カフェラテF -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="カフェラテF 301kg" data-size="カード類／A4" data-color="All Kraft" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="カフェラテF 301kg" data-size="カード類／A4" data-color="All Kraft" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/kraft/kraft_caffelatte.png" />
@@ -1057,7 +1046,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■ディープマット(ローストナッツ) 
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="ディープマット(ローストナッツ) 265kg" data-size="カード類／A4" data-color="All Kraft" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="ディープマット(ローストナッツ) 265kg" data-size="カード類／A4" data-color="All Kraft" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/kraft/007.png" />
@@ -1076,7 +1065,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■プライク(ブラウン) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="プライク(ブラウン) 284kg" data-size="カード類／A4" data-color="All Kraft" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="プライク(ブラウン) 284kg" data-size="カード類／A4" data-color="All Kraft" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/kraft/kraft_plike.png" />
@@ -1098,7 +1087,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 											<!-- ================================================== -->
 											<!-- ■ブラックSF -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="ブラックSF 301kg" data-size="カード類／A4" data-color="All Black" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="ブラックSF 301kg" data-size="カード類／A4" data-color="All Black" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/black/black_black-sf.png" />
@@ -1117,7 +1106,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■ディープマット(ブラック) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="ディープマット(ブラック) 265kg" data-size="カード類／A4" data-color="All Black" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="ディープマット(ブラック) 265kg" data-size="カード類／A4" data-color="All Black" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/black/black_deepmat.png" />
@@ -1136,7 +1125,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■特A・DLC(ブラック) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="特A・DLC(ブラック) 0.5mm" data-size="カード類／A4" data-color="All Black" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="特A・DLC(ブラック) 0.5mm" data-size="カード類／A4" data-color="All Black" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/black/black_tokua.jpg" />
@@ -1155,7 +1144,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■ケンラン(ディープブラック) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="ケンラン(ディープブラック) 310kg" data-size="カード類／A4" data-color="All Black" data-kind="Luster"  data-foil="Good" data-pppet="Good"/>
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="ケンラン(ディープブラック) 310kg" data-size="カード類／A4" data-color="All Black" data-kind="Luster"  data-foil="Good" data-pppet="Good"/>
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/black/black_kenran.png" />
@@ -1174,7 +1163,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■黒気包紙U-FS -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="黒気包紙U-FS 288kg" data-size="カード類／A4" data-color="All Black" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="黒気包紙U-FS 288kg" data-size="カード類／A4" data-color="All Black" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/black/black_kurokihoushi.png" />
@@ -1194,7 +1183,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■OK ACカード(まくろ) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="OK ACカード(まくろ) 309kg" data-size="カード類／A4" data-color="All Black" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="OK ACカード(まくろ) 309kg" data-size="カード類／A4" data-color="All Black" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/black/black_okaccard.png" />
@@ -1213,7 +1202,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■プライク(ブラック) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="プライク(ブラック) 284kg" data-size="カード類／A4" data-color="All Black" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="プライク(ブラック) 284kg" data-size="カード類／A4" data-color="All Black" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/black/black_plike.png" />
@@ -1232,7 +1221,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■タント／TANT(N-1) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="タント／TANT(N-1) 180kg" data-size="カード類／A4" data-color="All Black" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="タント／TANT(N-1) 180kg" data-size="カード類／A4" data-color="All Black" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/black/black_tant.jpg" />
@@ -1254,7 +1243,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 											<!-- ================================================== -->
 											<!-- ■ディープマット(ボルドー) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="ディープマット(ボルドー) 265kg" data-size="カード類／A4" data-color="All Red" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="ディープマット(ボルドー) 265kg" data-size="カード類／A4" data-color="All Red" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/red/red_deepmat02.jpg" />
@@ -1273,7 +1262,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■ディープマット(ルージュ) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="ディープマット(ルージュ) 265kg" data-size="カード類／A4" data-color="All Red" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="ディープマット(ルージュ) 265kg" data-size="カード類／A4" data-color="All Red" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/red/red_deepmat.jpg" />
@@ -1293,7 +1282,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■OK ACカード(まあか) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="OK ACカード(まあか) 309kg" data-size="カード類／A4" data-color="All Red" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="OK ACカード(まあか) 309kg" data-size="カード類／A4" data-color="All Red" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/red/red_okaccard.jpg" />
@@ -1313,7 +1302,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■ケンラン(ディープレッド) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="ケンラン(ディープレッド) 310kg" data-size="カード類／A4" data-color="All Red" data-kind="Luster" data-foil="Good" data-pppet="Good"/>
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="ケンラン(ディープレッド) 310kg" data-size="カード類／A4" data-color="All Red" data-kind="Luster" data-foil="Good" data-pppet="Good"/>
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/red/red_kenran.jpg" />
@@ -1333,7 +1322,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■プライク(レッド) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="プライク(レッド) 284kg" data-size="カード類／A4" data-color="All Red" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="プライク(レッド) 284kg" data-size="カード類／A4" data-color="All Red" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/red/red_kenran.jpg" />
@@ -1352,7 +1341,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■プライク(ボルドー) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="プライク(ボルドー) 284kg" data-size="カード類／A4" data-color="All Red" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="プライク(ボルドー) 284kg" data-size="カード類／A4" data-color="All Red" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/red/red_plike02.jpg" />
@@ -1374,7 +1363,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 											<!-- ================================================== -->
 											<!-- ■ディープマット(インディゴ) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="ディープマット(インディゴ) 265kg" data-size="カード類／A4" data-color="All Blue" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="ディープマット(インディゴ) 265kg" data-size="カード類／A4" data-color="All Blue" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/blue/blue_deepmat.jpg" />
@@ -1393,7 +1382,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■特A・DLC(インディゴ) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="特A・DLC(インディゴ) 0.5mm" data-size="カード類／A4" data-color="All Blue" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="特A・DLC(インディゴ) 0.5mm" data-size="カード類／A4" data-color="All Blue" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/blue/blue_tokua.jpg" />
@@ -1412,7 +1401,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■プライク(ネイビー) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="プライク(ネイビー) 284kg" data-size="カード類／A4" data-color="All Blue" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="プライク(ネイビー) 284kg" data-size="カード類／A4" data-color="All Blue" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/blue/blue_plike.jpg" />
@@ -1434,7 +1423,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 											<!-- ================================================== -->
 											<!-- ■プライク(バイオレット) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="プライク(バイオレット) 284kg" data-size="カード類／A4" data-color="All Purple" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="プライク(バイオレット) 284kg" data-size="カード類／A4" data-color="All Purple" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/purple/purple_plike.jpg" />
@@ -1456,7 +1445,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 											<!-- ================================================== -->
 											<!-- ■ディープマット(オリーブ) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="ディープマット(オリーブ) 265kg" data-size="カード類／A4" data-color="All Green" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="ディープマット(オリーブ) 265kg" data-size="カード類／A4" data-color="All Green" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/green/green_deepmat.jpg" />
@@ -1475,7 +1464,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■GAボード-FS(ダークグリーン) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="GAボード-FS(ダークグリーン) 300kg" data-size="カード類／A4" data-color="All Green" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="GAボード-FS(ダークグリーン) 300kg" data-size="カード類／A4" data-color="All Green" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/green/green_ga-board.jpg" />
@@ -1494,7 +1483,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■プライク(ディープグリーン) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="プライク(ディープグリーン) 284kg" data-size="カード類／A4" data-color="All Green" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="プライク(ディープグリーン) 284kg" data-size="カード類／A4" data-color="All Green" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/green/green_plike.jpg" />
@@ -1517,7 +1506,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 						<!-- ■カラープラン-FS(オレンジ) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="カラープランN-FS(オレンジ) 301kg" data-size="カード類／A4" data-color="All Orange" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="カラープランN-FS(オレンジ) 301kg" data-size="カード類／A4" data-color="All Orange" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/orange/orange_colorplan.jpg" />
@@ -1540,7 +1529,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 											<!-- ================================================== -->
 											<!-- ■マシュマロCoC -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="マシュマロCoC 225kg" data-size="カード類／A4" data-color="All Ivory" data-kind="High" data-pppet="Good"/>
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="マシュマロCoC 225kg" data-size="カード類／A4" data-color="All Ivory" data-kind="High" data-pppet="Good"/>
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/ivory/ivory_marshmallow.jpg" />
@@ -1559,7 +1548,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■高白ラフバガス -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="高白ラフバガス 270kg" data-size="カード類／A4" data-color="All Ivory" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="高白ラフバガス 270kg" data-size="カード類／A4" data-color="All Ivory" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/ivory/ivory_roughbagasse.jpg" />
@@ -1578,7 +1567,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■DKホワイトF -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="DKホワイトF 301kg" data-size="カード類／A4" data-color="All Ivory" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="DKホワイトF 301kg" data-size="カード類／A4" data-color="All Ivory" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/ivory/ivory_dkwhite.jpg" />
@@ -1597,7 +1586,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■アラベール-FS(ウルトラホワイト) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="アラベール-FS(ウルトラホワイト) 200kg" data-size="カード類／A4" data-color="All Ivory" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="アラベール-FS(ウルトラホワイト) 200kg" data-size="カード類／A4" data-color="All Ivory" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/ivory/ivory_araveal01u.jpg" />
@@ -1616,7 +1605,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■アラベール-FS(スノーホワイト) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="アラベール-FS(スノーホワイト) 200kg" data-size="カード類／A4" data-color="All Ivory" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="アラベール-FS(スノーホワイト) 200kg" data-size="カード類／A4" data-color="All Ivory" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/ivory/ivory_araveal01u.jpg" />
@@ -1635,7 +1624,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■アラベール-FS(ホワイト) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="アラベール-FS(ホワイト) 200kg" data-size="カード類／A4" data-color="All Ivory" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="アラベール-FS(ホワイト) 200kg" data-size="カード類／A4" data-color="All Ivory" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/ivory/ivory_araveal03w.jpg" />
@@ -1654,7 +1643,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■アラベール-FS(ナチュラル) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="アラベール-FS(ナチュラル) 200kg" data-size="カード類／A4" data-color="All Ivory" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="アラベール-FS(ナチュラル) 200kg" data-size="カード類／A4" data-color="All Ivory" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/ivory/ivory_araveal04n.jpg" />
@@ -1673,7 +1662,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■特AクッションF(シロ) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="特AクッションF(シロ) 0.5mm" data-size="カード類／A4" data-color="All Ivory" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="特AクッションF(シロ) 0.5mm" data-size="カード類／A4" data-color="All Ivory" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/ivory/ivory_tokua.jpg" />
@@ -1692,7 +1681,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■サーキュラーコットンペーパー -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="サーキュラーコットンペーパー 265kg" data-size="カード類／A4" data-color="All Ivory" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="サーキュラーコットンペーパー 265kg" data-size="カード類／A4" data-color="All Ivory" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/ivory/ivory_circularcottonpaper.jpg" />
@@ -1711,7 +1700,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■ヴァンヌーボV-FS(スノーホワイト) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="ヴァンヌーボV-FS(スノーホワイト) 275kg" data-size="カード類／A4" data-color="All Ivory" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="ヴァンヌーボV-FS(スノーホワイト) 275kg" data-size="カード類／A4" data-color="All Ivory" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/ivory/ivoly_ventnouveau-v.jpg" />
@@ -1730,7 +1719,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■ユポ紙(ユポYPI) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="ユポ紙(ユポYPI) 300μm" data-size="カード類／A4" data-color="All Ivory" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="ユポ紙(ユポYPI) 300μm" data-size="カード類／A4" data-color="All Ivory" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/ivory/ivory_yupo.jpg" />
@@ -1752,7 +1741,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■プライク(ホワイト) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="プライク(ホワイト) 284kg" data-size="カード類／A4" data-color="All Ivory" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="プライク(ホワイト) 284kg" data-size="カード類／A4" data-color="All Ivory" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/ivory/ivory_plike.jpg" />
@@ -1771,7 +1760,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■トレーシングペーパー -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="トレーシングペーパー 275kg" data-size="カード類／A4" data-color="All Transparent" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="トレーシングペーパー 275kg" data-size="カード類／A4" data-color="All Transparent" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/transparent/transparent_traceing.jpg" />
@@ -1790,7 +1779,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■スタードリーム-FS(クォーツ) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="スタードリーム-FS(クォーツ) 245kg" data-size="カード類／A4" data-color="All Metallic" data-kind="Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="スタードリーム-FS(クォーツ) 245kg" data-size="カード類／A4" data-color="All Metallic" data-kind="Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/pearl_metallic/pearl_metallic_stardream.jpg" />
@@ -1809,7 +1798,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■キュリアス メタルN(クールホワイト)  -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="キュリアス メタルN(クールホワイト) 258kg" data-size="カード類／A4" data-color="All Metallic" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="キュリアス メタルN(クールホワイト) 258kg" data-size="カード類／A4" data-color="All Metallic" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/pearl_metallic/pearl_metallic_curiousmetal.jpg" />
@@ -1828,7 +1817,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■スペシャリティーズ／SPECIALITIES(つやありメタリック：GT-1-FS) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="■スペシャリティーズ／SPECIALITIES(つやありメタリック：GT-1-FS) 270kg" data-size="カード類／A4" data-color="All Metallic" data-kind="High Luster" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="■スペシャリティーズ／SPECIALITIES(つやありメタリック：GT-1-FS) 270kg" data-size="カード類／A4" data-color="All Metallic" data-kind="High Luster" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/pearl_metallic/pearl_metallic_specialities01.jpg" />
@@ -1847,7 +1836,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■スペシャリティーズ／SPECIALITIES(つや消しメタリック：No.1620-FS) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="■スペシャリティーズ／SPECIALITIES(つや消しメタリック：No.1620-FS) 270kg" data-size="カード類／A4" data-color="All Metallic" data-kind="High Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="■スペシャリティーズ／SPECIALITIES(つや消しメタリック：No.1620-FS) 270kg" data-size="カード類／A4" data-color="All Metallic" data-kind="High Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/pearl_metallic/pearl_metallic_specialities02.jpg" />
@@ -1866,7 +1855,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■スペシャリティーズ／SPECIALITIES(ざらざらメタリック：No.1624-FS) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="スペシャリティーズ／SPECIALITIES(ざらざらメタリック：No.1624-FS) 270kg" data-size="カード類／A4" data-color="All Metallic" data-kind="High Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="スペシャリティーズ／SPECIALITIES(ざらざらメタリック：No.1624-FS) 270kg" data-size="カード類／A4" data-color="All Metallic" data-kind="High Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/pearl_metallic/pearl_metallic_specialities03.jpg" />
@@ -1885,7 +1874,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■スペシャリティーズ／SPECIALITIES(ざらざらメタリック：No.1625-FS) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="スペシャリティーズ／SPECIALITIES(ざらざらメタリック：No.1625-FS) 270kg" data-size="カード類／A4" data-color="All Metallic" data-kind="High Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="スペシャリティーズ／SPECIALITIES(ざらざらメタリック：No.1625-FS) 270kg" data-size="カード類／A4" data-color="All Metallic" data-kind="High Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/pearl_metallic/pearl_metallic_specialities04.jpg" />
@@ -1904,7 +1893,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■スペシャリティーズ／SPECIALITIES(ざらざらメタリック：No.1626-FS) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="スペシャリティーズ／SPECIALITIES(ざらざらメタリック：No.1626-FS) 270kg" data-size="カード類／A4" data-color="All Metallic" data-kind="High Mat" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="スペシャリティーズ／SPECIALITIES(ざらざらメタリック：No.1626-FS) 270kg" data-size="カード類／A4" data-color="All Metallic" data-kind="High Mat" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/pearl_metallic/pearl_metallic_specialities05.jpg" />
@@ -1926,7 +1915,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 											<!-- ================================================== -->
 											<!-- ■PELP! PAPER -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="PELP! PAPER 86kg" data-size="うす物類／A4" data-color="AllColor Gray Ivory" data-kind="High Mat" data-foil="Good"/>
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="PELP! PAPER 86kg" data-size="うす物類／A4" data-color="AllColor Gray Ivory" data-kind="High Mat" data-foil="Good"/>
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/ivory/ivory_pelppaper.jpg" />
@@ -1945,7 +1934,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 											<!-- ■トーンF(CG5) -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="トーンF(CG5) 90kg" data-size="うす物類／A4" data-color="All Gray" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="トーンF(CG5) 90kg" data-size="うす物類／A4" data-color="All Gray" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/gray/015-a.png" />
@@ -1967,7 +1956,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 											<!-- ================================================== -->
 											<!-- ■未晒クラフトT -->
 											<label class="select-data">
-												<input type="radio" name="印刷用紙1" data-base-name="印刷用紙" class="hide" value="未晒クラフトT 86kg" data-size="うす物類／A4" data-color="All Kraft" data-kind="High" />
+												<input type="radio" name="印刷用紙" data-base-name="印刷用紙" class="hide" value="未晒クラフトT 86kg" data-size="うす物類／A4" data-color="All Kraft" data-kind="High" />
 												<div class="paper-item">
 													<div class="paper-image">
 														<img src="https://foil.timetable.jp/images/color/kraft/kraft_mizarashikraft-m.jpg" />
@@ -2127,23 +2116,25 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 					<div id="errormsg_PP加工・PET加工" class="mfp_err"></div>
 
 					<br />
-					■ プロッター・カット加工（<span class="red">+1日納期</span>）<br />
+					■ プロッターカット加工（<span class="red">+1日納期</span>）<br />
 					<div style="display: flex; gap: 16px">
 						<div style="display: flex">
 							<p>加工：</p>
-							<select id="mfp_el05_7" data-base-id="mfp_el05_7" name="プロッター・カット加工" data-base-name="プロッター・カット加工" class="input02">
+							<select id="mfp_el05_7" data-base-id="mfp_el05_7" name="プロッターカット加工" data-base-name="プロッターカット加工" class="input02">
 								<option value="" selected="selected">なし</option>
 								<option value="あり">あり</option>
 							</select>
 						</div>
 					</div>
-					<div id="errormsg_プロッター・カット加工" class="mfp_err"></div>
+					<div id="errormsg_プロッターカット加工" class="mfp_err"></div>
 
 				</div>
 			</dd>
 			</dl>
 			</div>
-		</template>
+		
+<div id="product-details-2" class="product-details-second" style="display: none" aria-hidden="true" aria-labelledby="product-details-2-heading"></div>
+
 	<br /><br />
 
 		<dl class="dl_table_two dl_border">
@@ -2508,7 +2499,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 				<span class="shironuki">デザイン会社様・印刷会社様向け</span
 				><br />
 				<label for="rdo_24" class="mfp">
-					<input type="radio"  id="rdo_23" style="vertical-align:middle;"  value="【代行発送】差出人：ご注文者さま → 発送先：クライアントさま等" name="送り状の記載内容" onclick="entryChange1();"/>
+					<input type="radio"  id="rdo_23_duplicate_2" style="vertical-align:middle;"  value="【代行発送】差出人：ご注文者さま → 発送先：クライアントさま等" name="送り状の記載内容" onclick="entryChange1();"/>
 					【代行発送（+300円）】差出人：ご注文者さま &rarr; 発送先：クライアントさま等
 				</label>
 				<p class="text_caution">
@@ -2713,11 +2704,10 @@ $(function() {
 </div>
 
 <!-- ① 商品1〜3の入力欄を先に生成 -->
-<script type="text/javascript">
-window.prepareOrderProductsForMFP();
-</script>
+
 
 <!-- ② Mailform Proを初期化 -->
+<script src="commons/product-count.js" charset="UTF-8"></script>
 <script
 type="text/javascript"
 id="mfpjs"
@@ -2726,9 +2716,7 @@ charset="UTF-8">
 </script>
 
 <!-- ③ 確認画面用の処理を登録 -->
-<script type="text/javascript">
-window.installOrderMfpConfirmHook();
-</script>
+
 <!---メールフォーム終わり--->
 
 	<script language="javascript" type="text/javascript">
@@ -3078,7 +3066,7 @@ window.installOrderMfpConfirmHook();
 <script>
 
 $(function(){
-  deSVG('.my_svg', true);
+  if (typeof deSVG === 'function') deSVG('.my_svg', true);
 });
 </script>
 </div> <!-- /sp-quick-menu -->
@@ -3108,5 +3096,6 @@ jQuery.event.add(window,"load",function() { // 全ての読み込み完了後に
 <!-- InstanceEndEditable -->
 
 
+<script type="text/javascript" src="commons/new_order.js" charset="UTF-8"></script>
 </body>
 <!-- InstanceEnd --></html>

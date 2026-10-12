@@ -9,7 +9,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-#modalOpen {
+.modalOpen {
   display: none;
   position: fixed;
   top: 50%;
@@ -209,7 +209,7 @@ input[type=radio].hide {
 }
 
 @media screen and (max-width: 581px) {
-  #modalOpen {
+  .modalOpen {
     padding: 8px;
     width: 92%;
   }
@@ -254,4 +254,29 @@ input[type=radio].hide {
 
 .hidden {
   display: none;
+}
+/* 件数と2件目の商品欄。既存のdl_table_twoを使用します。 */
+.product-count-row label { display: inline-block; margin-right: 1.5em; cursor: pointer; }
+.product-details-second { clear: both; }
+
+.product-details-second .product-details-heading {
+  clear: both;
+  margin: 24px 0 12px;
+  padding: 10px 15px;
+  background: #f5f4f0; /* 既存の #f3f1e3 より少し彩度を落とした落ち着いた色 */
+  border-left: 5px solid #d4cec4; /* サイトカラーのグレーベージュをアクセントに */
+  font-size: 15px;
+  color: #333; /* h3の薄い文字色を上書きして視認性を高める */
+  font-weight: bold;
+}
+.product-details-second > .product-details { margin-top: 0; }
+.filter_groups label.is-selected { opacity: 1; }
+
+/* Keep long filter buttons within each product's mobile modal. */
+@media screen and (max-width: 581px) {
+  .modalOpen .filter-row { gap: 8px; margin: 12px 4px; }
+  .modalOpen .search-box_label { width: 84px; min-width: 84px; }
+  .modalOpen .filters { min-width: 0; }
+  .modalOpen .filters li { max-width: 100%; }
+  .modalOpen .filters label { white-space: normal; overflow-wrap: anywhere; }
 }

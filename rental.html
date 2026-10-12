@@ -1,0 +1,866 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja"><!-- InstanceBegin template="/Templates/template_rsp.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- Google Tag Manager -->
+<!--<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NDTR3NQ');</script>-->
+<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJ263J46FS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZJ263J46FS');
+</script>
+
+<!-- InstanceBeginEditable name="title" -->
+    <title>貸出サンプルお申込フォーム｜多彩な用紙への箔プリント・オンデマンド箔・デジタル箔なら「ドット箔プリント」｜株式会社タイムテーブル</title>
+    <!-- InstanceEndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<!-- InstanceBeginEditable name="keyword" -->
+    <meta name="keywords" content="貸出サンプル,名刺,箔押し,デザイン,箔プリント,オンデマンド箔,デジタル箔,ショップカード,はがき,ポストカード,クリスマスカード,年賀状,グリーティングカード,フライヤー,正方形フライヤー,正方形カード,タイムテーブル" />
+    <meta name="description" content="ドット箔プリントへの貸出サンプルお申込フォームです。多彩な用紙と箔プリントを使った名刺・ショップカード・はがき・ポストカードの箔プリント・デザインサービス。東京・原宿にある印刷・デザイン会社 株式会社タイムテーブルが運営。" />
+    <!-- InstanceEndEditable -->
+<meta name="viewport" content="width=device-width,shrink-to-fit=yes">
+<link href="../common/images/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://use.typekit.net/vob2cek.css">
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'cth5iro',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+	
+<!-- InstanceBeginEditable name="link" -->
+    <link type="text/css" rel="stylesheet" href="../common/css/media.css" />
+    <link href="../common/css/import.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="commons/style_700.css" rel="stylesheet" type="text/css" />
+    <link href="commons/mailform.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="mfp.statics/mailformpro.css" type="text/css" />
+    <link rel="stylesheet" href="datetimepicker-master/jquery.datetimepicker.css" type="text/css" />
+    <script type="text/javascript" src="commons/jquery.js" charset="UTF-8"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="commons/mailform.js" charset="UTF-8"></script>
+    <!-- InstanceEndEditable -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script>
+		(function($) {
+			$(function() {
+				var $header = $('#top-head');
+
+				// Nav Fixed
+				$(window).scroll(function() {
+					if ($(window).scrollTop() > 300) {
+						$header.addClass('fixed');
+					} else {
+						$header.removeClass('fixed');
+					}
+				});
+
+				// Nav Toggle Button
+				$('#nav-toggle').click(function(){
+					$header.toggleClass('open');
+				});
+
+			});
+		})(jQuery);
+	</script>
+
+<!--ナビゲーション設定-->
+<!--ナビゲーション設定-->
+<!-- InstanceBeginEditable name="gnavi" -->
+    <style type="text/css">
+      #gnavi1 {
+        background-position: 0px 0px;
+      }
+    </style>
+
+    <!-- ============================= -->
+    <!-- ▼スクリプトをCDNから読み込む -->
+    <!-- ============================= -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="http://jpostal.googlecode.com/svn/trunk/jquery.jpostal.js"></script>
+    <!-- ================================================== -->
+    <!-- ▼郵便番号や各種住所の入力欄に関するID名を指定する -->
+    <!-- ================================================== -->
+    <script type="text/javascript">
+      $(window).ready(function () {
+        $("#postcode1").jpostal({
+          postcode: ["#postcode1", "#postcode2"],
+          address: {
+            "#address1": "%3",
+            "#address2": "%4%5",
+          },
+        });
+      });
+    </script>
+    <!-- InstanceEndEditable -->
+<!--ナビゲーション設定　終了-->
+<!--ジャンプメニュー 設定-->
+<script type="text/javascript">
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+</script>
+<!--ジャンプメニュー 設定終了-->
+<!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+
+</head>
+<body>
+  <!-- InstanceBeginEditable name="load" -->
+
+    <!-- InstanceEndEditable --> 
+<!-- ヘッダー（PC）開始-->
+<div id="main-contents">
+<div id="header-pc">
+<div id="overline">
+	<div class="top">
+	</div>
+</div>
+
+<div id="header">
+    <div class="container">
+        <div id="logo"><a href="../index.html"><img src="../common/images/logo.svg" height="34" alt="ドット箔プリント(ロゴ)" /></a></div>
+	</div>
+
+	<div class="headcontainer">
+	<ul>
+	<li><a href="../index.html"><img src="../common/images/navi1.png" alt="トップページ" width="216px"/></a></li>
+	<li><a href="../menu/index.html"><img src="../common/images/navi2.png" alt="料金・用紙" width="216px"/></a></li>
+	<li><a href="../guide/index.html"><img src="../common/images/navi3.png" alt="ご利用ガイド" width="216px"/></a></li>
+	<li><a href="material.html"><img src="../common/images/navi4.png" alt="用紙サンプル請求" width="216px"/></a></li>
+	<li><a href="contact.html"><img src="../common/images/navi5.png" alt="お問い合わせ" width="216px"/></a></li>
+	</ul>
+	</div>
+</div>
+</div>
+
+ <!-- ヘッダー（SP）開始-->
+<div id="header-sp">
+<header id="top-head">
+	<div class="inner">
+    <div id="mobile-head">
+        <div id="overline">
+        <div class="top-sp">
+        <h1 class="logo"><a href="../index.html"><img src="../common/images/logo.svg" height="34" alt="ドット箔プリント(ロゴ)" /></a></h1>
+			<div id="nav-toggle">
+				<div>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+		</div>
+        </div>
+    </div>
+    <nav id="global-nav">
+        <ul>
+            <li><a href="../index.html">トップページ</a></li>
+            <li><a href="../menu/index.html">料金</a></li>
+            <li><a href="../guide/index.html">ご利用ガイド</a></li>
+            <li><a href="material.html">用紙サンプル請求</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+    </nav>
+	</div>
+</header>
+
+</div>
+  <!-- ヘッダー（PC）終了-->
+<!-- InstanceBeginEditable name="wideslide" -->
+
+      <!-- InstanceEndEditable -->
+
+  <!-- InstanceBeginEditable name="pankuzu" -->
+      <div id="pankuzu">
+        <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="https://foil.timetable.jp/"> <span itemprop="name">トップページ</span></a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="https://foil.timetable.jp/form/rental.html"> <span itemprop="name">貸出サンプルお申込</span></a>
+            <meta itemprop="position" content="2" />
+          </li>
+        </ol>
+      </div>
+      <!-- InstanceEndEditable --> 
+ 
+  
+<!-- ======================= -->
+<!-- ▼2カラムレイアウト領域 -->
+<!-- ======================= -->
+<div id="content">
+    
+    <!-- ====================== -->
+    <!-- ▼メインを作るブロック -->
+    <!-- ====================== -->
+    <!-- InstanceBeginEditable name="main" -->
+        <div id="main">
+          <div class="section">
+            <h1 id="return">貸出サンプルお申込</h1>
+            <div class="box">
+              <img src="images/material_main.png" alt="確認画面" style="margin: 10px auto 10px" width="100%" />
+              貸出サンプルのお申込フォームです。<br />
+              下記のフォームにご記入ください。（<img src="images/mfp_must.svg" height="16" style="vertical-align: -0.2em" alt="必須" />は必ずご記入ください。）
+            </div>
+
+            <div class="box">
+              <div class="information">
+                <p class="pL10" style="font-family: futura-pt, UD新ゴ M; font-weight: 500">貸出サンプルでは、ドット箔プリントで取り扱っている「カード類」のすべての用紙をお手に取ってご覧いただけます。<br />
+                （封筒は入っておりません。）</p>
+                <br />
+                <h5 class="icon font_b">下記の条件がございますので、ご確認の上お申込ください。</h5>
+                <p class="caution" style="text-align: left">
+                  ・貸出期間は1週間です。<br />
+                  ・ご返却時の送料はお客さまご負担とさせていただきます。
+                </p>
+              </div>
+              <!--//information-->
+            </div>
+            <!--//box-->
+
+            <h2>貸出サンプルお申込フォーム</h2>
+            <!---メールフォームここから--->
+            <div id="mfp_phase_confirm" style="padding: 0 10px">
+              <img src="images/mfp_table_top_2.svg" style="margin: 10px auto 10px" width="100%" alt="確認画面" />
+              <div id="mfp_phase_confirm_inner"></div>
+              <div class="mfp_buttons">
+                <button id="mfp_button_cancel" class="mfp_element_button" onclick="mfp.cancel()"></button>
+                <button id="mfp_button_send" class="mfp_element_button" onclick="mfp.sendmail()"></button>
+              </div>
+            </div>
+            <div class="box">
+              <form name="order_rental" id="mailformpro" action="mail_rental/mailformpro.cgi" method="POST" autocomplete="off">
+                <div class="mfp_phase" summary="お問い合わせ本文">
+                  <img src="images/mfp_table_top_1.svg" alt="確認画面" style="margin: 10px auto 10px" width="100%" />
+                  <br />
+                  <div id="mailfield">
+                    <dl class="dl_table_two dl_border">
+                      <dt>
+                        <p class="text_contact">
+                          検討しているご注文の種別<br class="pc-nomi" />
+                          <img src="images/mfp_must.svg" class="must" height="16" alt="必須" />
+                        </p>
+                      </dt>
+                      <dd>
+                        <ul class="mfp">
+                          <li>
+                            <label for="rdo_1">
+                              <input type="radio" id="rdo_1" name="検討しているご注文の種別" value="印刷のみ(Adobeソフトで完全データ入稿)の注文を考えている" required="required" />
+                              印刷のみ(Adobeソフトで完全データ入稿)の注文を考えている
+                            </label>
+                          </li>
+                          <li>
+                            <label for="rdo_2">
+                              <input type="radio" id="rdo_2" name="検討しているご注文の種別" value="印刷のみ(Officeソフトでデータ入稿)の注文を考えている" required="required" />
+                              印刷のみ(Officeソフトでデータ入稿)の注文を考えている
+                            </label>
+                          </li>
+                          <li>
+						<label for="rdo_3" data-base-for="rdo_3">
+                              <input type="radio" id="rdo_3" name="検討しているご注文の種別" value="印刷+デザイン両方の注文を考えている" required="required" />
+                              印刷+デザイン両方の注文を考えている
+                            </label>
+                          </li>
+                        </ul>
+                        <div id="errormsg_検討しているご注文の種別" class="mfp_err"></div>
+                      </dd>
+
+                      <dt>
+                        <p class="text_contact">会社名（店舗名）</p>
+                      </dt>
+                      <dd>
+                        <div class="mfp">
+                          <input type="text" maxlength="80" name="会社名（店舗名）" size="35" placeholder="例） 株式会社タイムテーブル" />
+                        </div>
+                        <p class="text_caution">
+                          ※会社名、店舗名を全角にてご入力ください。<br />
+                          ※個人の方はご記入不要です。
+                        </p>
+                      </dd>
+
+                      <dt>
+                        <p class="text_contact">
+                          お名前<br class="pc-nomi" />
+                          <img src="images/mfp_must.svg" class="must" height="16" alt="必須" />
+                        </p>
+                      </dt>
+                      <dd>
+                        <div class="mfp">
+                          <input type="text" maxlength="80" name="お名前" size="35" required="required" placeholder="例） 木田　穂乃香" />
+                        </div>
+                        <p class="text_caution">※全角にてご入力ください。</p>
+                      </dd>
+
+                      <dt>
+                        <p class="text_contact">
+                          メールアドレス<br class="pc-nomi" />
+                          <img src="images/mfp_must.svg" class="must" height="16" alt="必須" />
+                        </p>
+                      </dt>
+                      <dd>
+                        <div class="mfp">
+                          <input type="email" data-type="email" maxlength="80" name="email" size="35" required="required" placeholder="例） kida.honoka@timetable.jp" />
+                        </div>
+                        <p class="text_caution">※半角英数字にてご入力ください。</p>
+                        <br />
+                        <div class="mfp">
+                          <input type="email" data-type="email" name="confirm_email" maxlength="80" size="35" required="required" placeholder="例） kida.honoka@timetable.jp" data-post-disable="1" />
+                        </div>
+                        <p class="text_caution"><span class="red">確認のため、もう一度入力してください。</span></p>
+                      </dd>
+
+                      <dt>
+                        <p class="text_contact">
+                          郵便番号<br class="pc-nomi" />
+                          <img src="images/mfp_must.svg" class="must" height="16" alt="必須" />
+                        </p>
+                      </dt>
+                      <dd>
+                        <input type="hidden" name="ご住所" data-unjoin="〒+郵便番号+\n+都道府県+市区町村+ +建物名" value="" class="mfp" />
+                        <div class="mfp">
+                          〒
+                          <input
+                            type="text"
+                            name="郵便番号"
+                            maxlength="80"
+                            onblur="mfpc(this.form.id,this.name,'都道府県','市区町村','建物名');"
+                            name="郵便番号"
+                            size="20"
+                            onkeyup="AjaxZip3.zip2addr(this,'','都道府県','市区町村');"
+                            id="member_delivery[member_delivery_zip]_id"
+                            id="member_delivery[member_delivery_id]"
+                            required="required"
+                            placeholder="例） 150-0001"
+                          /><br />
+                          <p class="text_caution">
+                            ※半角英数字にてご入力ください。(ハイフンあり)<br />
+                            <a href="http://www.post.japanpost.jp/zipcode/" target="_blank">郵便番号検索</a>
+                          </p>
+                        </div>
+                      </dd>
+
+                      <!-- 郵便番号を住所に変換 -->
+                      <script src="https://ajaxzip3.github.io/ajaxzip3-source.js" charset="UTF-8"></script>
+
+                      <dt>
+                        <p class="text_contact">
+                          ご住所<br class="pc-nomi" />
+                          <img src="images/mfp_must.svg" class="must" height="16" alt="必須" />
+                        </p>
+                      </dt>
+                      <dd>
+                        <div class="mfp">
+                          <ol>
+                            <li>
+                              <span class="text_contact">都道府県</span><br />
+                              <select name="都道府県" required>
+                                <option value="">－</option>
+                                <option value="北海道">北海道</option>
+                                <option value="青森県">青森県</option>
+                                <option value="岩手県">岩手県</option>
+                                <option value="宮城県">宮城県</option>
+                                <option value="秋田県">秋田県</option>
+                                <option value="山形県">山形県</option>
+                                <option value="福島県">福島県</option>
+                                <option value="茨城県">茨城県</option>
+                                <option value="栃木県">栃木県</option>
+                                <option value="群馬県">群馬県</option>
+                                <option value="埼玉県">埼玉県</option>
+                                <option value="千葉県">千葉県</option>
+                                <option value="東京都">東京都</option>
+                                <option value="神奈川県">神奈川県</option>
+                                <option value="山梨県">山梨県</option>
+                                <option value="新潟県">新潟県</option>
+                                <option value="富山県">富山県</option>
+                                <option value="石川県">石川県</option>
+                                <option value="福井県">福井県</option>
+                                <option value="長野県">長野県</option>
+                                <option value="岐阜県">岐阜県</option>
+                                <option value="静岡県">静岡県</option>
+                                <option value="愛知県">愛知県</option>
+                                <option value="三重県">三重県</option>
+                                <option value="滋賀県">滋賀県</option>
+                                <option value="京都府">京都府</option>
+                                <option value="大阪府">大阪府</option>
+                                <option value="兵庫県">兵庫県</option>
+                                <option value="奈良県">奈良県</option>
+                                <option value="和歌山県">和歌山県</option>
+                                <option value="鳥取県">鳥取県</option>
+                                <option value="島根県">島根県</option>
+                                <option value="岡山県">岡山県</option>
+                                <option value="広島県">広島県</option>
+                                <option value="山口県">山口県</option>
+                                <option value="徳島県">徳島県</option>
+                                <option value="香川県">香川県</option>
+                                <option value="愛媛県">愛媛県</option>
+                                <option value="高知県">高知県</option>
+                                <option value="福岡県">福岡県</option>
+                                <option value="佐賀県">佐賀県</option>
+                                <option value="長崎県">長崎県</option>
+                                <option value="熊本県">熊本県</option>
+                                <option value="大分県">大分県</option>
+                                <option value="宮崎県">宮崎県</option>
+                                <option value="鹿児島県">鹿児島県</option>
+                                <option value="沖縄県">沖縄県</option>
+                              </select>
+                            </li>
+                            <br />
+                            <li>
+                              <span class="text_contact">市区町村</span><br />
+                              <input type="text" maxlength="80" name="市区町村" size="35" required="required" />
+                            </li>
+                            <br />
+                            <li>
+                              <span class="text_contact">建物名</span><br />
+                              <input type="text" maxlength="80" name="建物名" size="35" />
+                            </li>
+                          </ol>
+                        </div>
+                      </dd>
+
+                      <dt>
+                        <p class="text_contact">
+                          電話番号<br class="pc-nomi" />
+                          <img src="images/mfp_must.svg" class="must" height="16" alt="必須" />
+                        </p>
+                      </dt>
+                      <dd>
+                        <div class="mfp">
+                          <input type="text" maxlength="80" name="電話番号" size="35" required="required" placeholder="例） 00-0000-0000" />
+                        </div>
+                        <p class="text_caution">
+                          ※半角英数字にてご入力ください。(ハイフンあり)<br />
+                          ※連絡の取れる電話番号を入力してください。
+                        </p>
+                      </dd>
+
+                      <dt>
+                        <p class="text_contact">備考</p>
+                      </dt>
+                      <dd>
+                        <div class="mfp">
+                          <textarea name="備考" cols="40" rows="10"></textarea>
+                        </div>
+                      </dd>
+
+                      <dt>
+                        <p class="text_contact">
+                          貸出期間<br class="pc-nomi" />
+                          <img src="images/mfp_must.svg" class="must" height="16" alt="必須" />
+                        </p>
+                      </dt>
+                      <dd>
+                        <div class="mfp">
+                          <label>
+                            <input type="checkbox" name="貸出期間" value="到着後、1週間以内に当社へ返却することに同意します。（返却時の送料はお客さまご負担）" required="required" />
+                            <span class="text_contact">到着後、1週間以内に当社へ返却することに同意します。</span>
+                          </label>
+                        </div>
+                        <p class="text_caution">（返却時の送料はお客さまご負担）</p>
+                      </dd>
+                    </dl>
+
+                    <div class="mfp_buttons">
+                      <button type="submit" data-disabled="入力内容にエラーがあります" id="button_mfp_goconfirm" onclick="OnLinkClick();"></button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <script type="text/javascript" id="mfpjs" src="mail_rental/mailformpro.cgi" charset="UTF-8"></script>
+            <!---メールフォーム終わり--->
+
+            <script language="javascript" type="text/javascript">
+              $("#button_mfp_goconfirm").click(function () {
+                window.location.href = "#return";
+              });
+            </script>
+          </div>
+          <!-- /section -->
+        </div>
+        <!-- /main -->
+        <!-- InstanceEndEditable -->
+		
+
+    <!-- ====================== -->
+    <!-- ▲メインを作るブロック -->
+    <!-- ====================== -->
+
+    <!-- ====================== -->
+    <!-- ▼サイドバーを作るブロック -->
+    <!-- ====================== -->
+    <div class="sub">
+			
+    <p class="button" style="margin-bottom:10px;">
+    <a href="contact.html">
+    <img src="../common/images/button/btn_contact.svg" alt="ドット箔プリントに関するお問い合わせ" />
+    </a>
+    </p>
+
+    <p class="button" style="margin-bottom:10px;">
+    <a href="../design/index.html">
+    <img src="../common/images/button/btn_design.svg" alt="デザインから注文する" />
+    </a>
+    </p>
+
+    <!-- <p class="botton" style="margin-bottom: 10px">
+    <a href="../news/sale202405.html">
+    <img src="../news/sale/202405/sale_banner_small.svg" alt="square shop card sale" />
+    </a>
+    </p> -->
+
+    <div class="section" style="margin-bottom:10px;">
+            <img src="../common/images/sub_color.svg" alt="紙の色から選ぶ" />
+
+        <div class="section_inner" style="margin-bottom:10px;">
+          <ul class="sub_guide">
+            <li style="list-style: none"><span style="color: #b98c46">■</span> <a href="../color/kraft.html">クラフト紙／茶</a></li>
+            <li style="list-style: none"><span style="color: #afafb0">■</span> <a href="../color/gray.html">グレー</a></li>
+            <li style="list-style: none"><span style="color: #000000">■</span> <a href="../color/black.html">黒</a></li>
+            <li style="list-style: none"><span style="color: #c9171e">■</span> <a href="../color/red.html">赤</a></li>
+            <li style="list-style: none"><span style="color: #003f8e">■</span> <a href="../color/blue.html">青</a></li>
+            <li style="list-style: none"><span style="color: #6600cc">■</span> <a href="../color/purple.html">紫</a></li>
+            <li style="list-style: none"><span style="color: #00552e">■</span> <a href="../color/green.html">緑</a></li>
+            <li style="list-style: none"><span style="color: #ec6800">■</span> <a href="../color/orange.html">オレンジ</a></li>
+            <li style="list-style: none"><span style="color: #f8f4e6">■</span> <a href="../color/ivory.html">アイボリー／白</a></li>
+            <li style="list-style: none"><span style="color: #E0F9FF">■</span> <a href="../color/transparent.html">半透明／透明</a></li>
+            <li style="list-style: none"><span style="color: transparent; background: linear-gradient(135deg, #ffffff 0%, #cccccc 50%, #999999 100%); -webkit-background-clip: text; background-clip: text">■</span> <a href="../color/pearl_metallic.html">パール／メタリック</a></li>
+          </ul>
+			
+		<div class="minibunner">
+            <a href="../guide/paper/index.html">
+            <img src="../common/images/img_paper.svg" alt="用紙から選ぶ" />
+            </a>
+         </div>
+
+        </div>
+		
+    </div>
+        
+        <div class="section" style="margin-bottom:10px;">
+        <a href="../menu/index.html">
+            <img src="../common/images/sub_type.svg" alt="商品から選ぶ" />
+        </a>
+            
+        <div class="section_inner" style="margin-bottom:10px;">
+          <h4>カード類</h4>
+            <ul class="sub_guide">
+            <li><a href="../menu/card/businesscard/index.html">名刺・ショップカード</a></li>
+            <li><a href="../menu/card/memberscard/index.html">診察券・メンバーズカード</a></li>
+            <li><a href="../menu/card/postcard/index.html">はがき・ポストカード</a></li>
+            <li><a href="../menu/card/index.html">カード</a></li>
+            <li><a href="../menu/square_card/index.html">正方形カード</a></li>
+            <!--<li><a href="../menu/ori_card/index.html">折りカード</a></li>--> 
+            <li><a href="../menu/product_tag/index.html">商品タグ</a></li>  
+            </ul>
+
+          <!--<h4>うす物類</h4>
+            <ul class="sub_guide">
+            <li><a href="../menu/flyer/index.html">フライヤー</a></li>
+            <li><a href="../menu/square_flyer/index.html">正方形フライヤー</a></li>
+			<li><a href="../menu/pamphlet/index.html">折りパンフレット</a></li>
+            </ul>-->
+
+          <!--<h4>封筒</h4>
+            <ul class="sub_guide">
+            <li><a href="../menu/envelope/naga3/111eco_07.html">長形3号</a></li>
+            <li><a href="../menu/envelope/yonaga3/111eco_07.html">洋長形3号</a></li>
+            <li><a href="../menu/envelope/kaku2/111eco_07.html">角形2号</a></li>
+            <li><a href="../menu/envelope/yokaku2/113eco_07.html">洋角形2号</a></li>
+            </ul>-->
+
+         <div class="minibunner">
+            <a href="../menu/testprint/index.html">
+            <img src="../common/images/img_testprint.svg" alt="試し刷り" />
+            </a>
+         </div>
+			
+		<div class="minibunner">
+            <a href="../menu/assort/index.html">
+            <img src="../common/images/img_assort.svg" alt="アソート印刷" />
+            </a>
+         </div>
+
+        </div>
+</div>
+        
+<div class="section" style="margin-bottom:10px;">
+    <a href="../options/index.html">
+    <img src="../common/images/sub_option.svg" alt="オプション加工" />
+    </a>
+
+    <div class="section_inner" style="margin-bottom:10px;">
+		<h4>カード類</h4>
+            <ul class="sub_guide">
+            <li><a href="../options/kadomaru.html">角丸加工</a></li> 
+			<li><a href="../options/sujiire.html">スジ入れ加工</a></li>
+			<li><a href="../options/anaake.html">孔開け加工</a></li>
+			<li><a href="../options/pp_pet.html">PP加工・PET加工</a></li>
+            </ul>
+		
+		<!--<h4>うす物類</h4>
+            <ul class="sub_guide">
+            <li><a href="../options/ori.html">折り加工</a></li>
+			<li><a href="../options/kadomaru.html">角丸加工</a></li>
+			<li><a href="../options/anaake.html">孔開け加工</a></li>
+            </ul>-->
+		
+		<!--<h4>封筒</h4>
+			<ul class="sub_guide">
+            <li><a href="../options/machi.html">簡易マチ加工</a></li>
+            </ul>-->
+	
+    </div>
+</div>
+           
+<div class="section" style="margin-bottom:10px;">
+    <a href="../guide/index.html">
+    <img src="../common/images/sub_guide.svg" alt="ドット箔プリントのご利用ガイド" />
+    </a>
+
+    <div class="section_inner" style="margin-bottom:10px;">
+    <h4>商品について</h4>
+        <ul class="sub_guide">
+        <li><a href="../guide/color_variations.html">箔のカラーバリエーション</a><br />
+		　&nbsp;<a href="../guide/color_variations.html">メタリックカラーの表現</a></li>
+        <li><a href="../guide/caution.html">箔プリントの注意点</a></li>
+        <li><a href="../guide/printing_method.html">印刷方式の違いについて</a></li>
+        <li><a href="../guide/paper/index.html">用紙について</a></li>
+        <li><a href="../guide/frontback.html">表裏関係について</a></li>
+        </ul>
+
+    <h4>ご注文について</h4>
+        <ul class="sub_guide">
+        <li>ご注文の流れ<br />
+            ■<a href="../guide/flow_design.html">印刷+デザインのご注文</a> 　
+            <div class="t1"> 　ご注文の流れ<br />
+             　イメージ通りの印刷物を作るコツ</div>
+            ■<a href="../guide/flow_print.html">印刷のみのご注文</a> 　
+            <div class="t1"> 　ご注文の流れ</div>
+        </li>
+        <li><a href="../guide/date_time.html">納期について</a></li>
+        <li><a href="../guide/payment.html">お支払について</a></li>
+        <li><a href="../guide/point.html">ポイントについて</a></li>
+        <li><a href="../guide/introduction.html">お客さまご紹介制度</a></li>
+        <li><a href="../guide/cancel.html">返品・キャンセルについて</a></li>
+        <li><a href="../guide/faq.html">よくあるご質問</a></li>
+        <li><a href="../guide/law.html">特定商取引法に基づく表記</a></li>
+        </ul>
+    </div>
+</div>
+            
+<div class="section" style="margin-bottom:10px;">
+    <img src="../common/images/sub_calender.svg" alt="ドット箔プリントの営業日カレンダー" />
+
+	<!--<div class="section_inner" style="margin-top:10px;">
+	<div id="important">
+	<center>
+        <span class="shironuki_red">重要</span><a href="../news/holiday_winter.html">年末年始の営業について</a>
+	</center>
+	</div>
+	</div>-->
+	
+	<!--<div class="section_inner" style="margin-top:10px;">
+    <div id="important">
+    <center>
+    <span class="shironuki_red">重要</span><a href="../news/temporary_closed.html">2/10(火)は臨時休業させていただきます。</a>
+    </center>
+    </div>
+    </div>-->
+
+    <iframe width="200px" height="320px" style="display: block; margin: 5px auto;
+    border:none;" scrolling="no"  src="https://timetable.heteml.net/cal/"> </iframe>
+
+    <div class="section_inner" style="margin-bottom:10px;">
+    <p class="off_Holiday">30</p>
+    …休業日<br />
+	<span class="text-narrow-left narrow90">
+    <span class="off_Optionday">30</span>
+    …一部印刷納期カウント外の日</span>
+    <p class="off_Temporary">30</p>
+    …臨時休業日<br />
+    <div class="t1">※原則として、土曜・日曜は営業していますが、祝日は休業させていただきます。<br />
+    </div>
+    </div>
+</div>    
+                
+ <div class="section" style="margin-bottom:10px;">   
+    <img src="../common/images/sub_area.svg" alt="ドット箔プリントの対応エリア" >
+    <div class="section_inner" style="margin-bottom:10px;">
+        <h4>日本全国対応！</h4>
+            北海道<span class="t1">(札幌市ほか)</span>,青森,<br />
+            岩手<span class="t1">(盛岡市ほか)</span>,秋田,<br />
+            宮城<span class="t1">(仙台市ほか)</span>,山形,福島,<br />
+            新潟<span class="t1">(新潟市ほか)</span>,<br />
+            東京<span class="t1">(東京23区ほか)</span>,<br />
+            神奈川<span class="t1">(横浜市・川崎市・相模原市ほか)</span>,<br />
+            埼玉<span class="t1">(さいたま市ほか)</span>,<br />
+            千葉<span class="t1">(千葉市ほか)</span>,<br />
+            茨城<span class="t1">(水戸市ほか)</span>,群馬<span class="t1">(前橋市ほか)</span>,<br />
+            栃木<span class="t1">(宇都宮市ほか)</span>,山梨<span class="t1">(甲府市ほか)</span>,<br />
+            静岡<span class="t1">(静岡市,浜松市ほか)</span>,長野,岐阜,<br />
+            愛知<span class="t1">(名古屋市ほか)</span>,三重<span class="t1">(津市ほか)</span>,<br />
+            石川<span class="t1">(金沢市ほか)</span>,富山,福井,<br />
+            大阪<span class="t1">(大阪市,堺市ほか)</span>,<br />
+            京都<span class="t1">(京都市ほか)</span>,兵庫<span class="t1">(神戸市ほか)</span>,<br />
+            滋賀<span class="t1">(大津市ほか)</span>,奈良,和歌山,<br />
+            岡山<span class="t1">(岡山市ほか)</span>,広島<span class="t1">(広島市ほか)</span>,<br />
+            鳥取,島根<span class="t1">(松江市ほか)</span>,山口,<br />
+            香川<span class="t1">(高松市ほか)</span>,徳島,<br />
+            愛媛<span class="t1">(松山市ほか)</span>,高知,<br />
+            福岡<span class="t1">(福岡市,北九州市ほか)</span>,<br />
+            佐賀,長崎,大分,<br />
+            熊本<span class="t1">(熊本市ほか)</span>,宮崎,鹿児島,<br />
+            沖縄<span class="t1">(那覇市ほか)</span>
+
+     </div>
+</div>
+             
+ <div class="section" style="margin-bottom:10px;"> 
+    <img src="../common/images/sub_2.svg" alt="当社運営サービス" >
+    <div class="section_inner" style="margin-bottom:10px;"> 
+		
+		<div class="minibunner"><a href="http://white.timetable.jp/" target="_blank" >
+			<img src="../common/images/sidebana/side_bnr_white.svg" alt="株式会社タイムテーブルドット白印刷ページ" style="margin-top:10px;"></a></div>
+			<span class="t0">株式会社タイムテーブル白印刷専門店<br>
+    							「ドット白印刷」</span><br>
+
+        <div class="minibunner"><a href="https://envelope.timetable.jp/" target="_blank">
+            <img src="../common/images/sidebana/side_bnr_envelope.svg" alt="株式会社タイムテーブル ドット封筒"  style="margin-top:10px;"></a></div>
+            <span class="t0">タイムテーブル 封筒専門店<br />
+                                「ドット封筒」</span> <br />          
+
+        <div class="minibunner"><a href="https://thickcard.timetable.jp/" target="_blank">
+            <img src="../common/images/sidebana/side_bnr_thickcard.svg" alt="株式会社タイムテーブル ドット厚紙印刷"  style="margin-top:10px;"></a></div>
+            <span class="t0">タイムテーブル 厚紙印刷専門店<br />
+                                「ドット厚紙印刷」</span> <br />  
+
+        <div class="minibunner"><a href="https://sign-display.timetable.jp/" target="_blank">
+            <img src="../common/images/sidebana/side_bnr_sign-display.svg" alt="株式会社タイムテーブル ドット大判プリント"  style="margin-top:10px;"></a></div>
+            <span class="t0">タイムテーブル 大判プリント専門店<br />
+                                「ドット大判プリント」</span> <br />  
+
+        <div class="minibunner"><a href="http://thickcard.timetable.jp/" target="_blank">
+            <img src="../common/images/sidebana/side_bnr_hp.svg" alt="株式会社タイムテーブル ドットホームページ"  style="margin-top:10px;"></a></div>
+            <span class="t0">タイムテーブル ホームページ専門店<br />
+                                「ドットホームページ」</span> <br />
+
+        <a class="twitter-timeline"  height="150" href="https://twitter.com/timetabledesign"  data-widget-id="390765569844056064">@timetabledesign からのツイート</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        <div class="minibunner"><a href="https://www.facebook.com/timetable.co.jp" target="_blank"><img src="../common/images/button/button_facebook.svg" alt="株式会社タイムテーブルfacebookページ"></a> </div>
+            <span class="t0">タイムテーブルのfacebookページ<br />
+                                 お得情報やスタッフの日々など配信中</span>
+
+    </div>
+</div>
+</div>
+<!-- ====================== -->
+<!-- ▲サイドを作るブロック -->
+<!-- ====================== -->
+
+</div>
+<!-- ======================= -->
+<!-- ▲2カラムレイアウト領域 -->
+<!-- ======================= -->
+
+<div class="pagefooter">
+		
+</div>
+    
+<!-- フッタ開始 -->
+<div id="footer">
+	<div class="container">
+    <div class="p1">
+    
+    <div class="bg_logo"><img src="../common/images/sp/footer_bg_logo.svg" alt="株式会社タイムテーブル ドット箔プリント"  style="margin-top:10px;"></div>
+		「ドット箔プリント」は、東京・原宿の印刷・デザイン会社 タイムテーブルが運営するオンデマンド箔プリントの特設ホームページです。<br />
+		型を作成しないため、従来の箔押しが持つ高級感を維持しながら、よりお手軽に美しい金銀の表現や多彩なメタリック印刷を実現できます。<br />
+		高品質な名刺・ポストカード・フライヤーを手軽に作成し、ワンランク上の付加価値を添えた印刷物をお届けします。
+	</div>
+
+    <div class="p2">
+		<ul class="nl" style="margin-top:10px;">
+		<li class="first"><a href="/">トップページ</a></li>
+		<li><a href="/menu/"><em>料金・用紙</em></a></li>
+		<li><a href="/guide/"><em>ご利用ガイド</em></a></li>
+		<li><a href="/form/material.html"><em>用紙サンプル請求</em></a></li>
+		<li><a href="/form/contact.html"><em>お問い合わせ</em></a></li>
+		</ul>
+    </div>
+		
+    <div class="p3">
+	<hr class="clear">	
+		<address>Copyright(C)2026 <a href="https://www.timetable.jp/" target="_blank">印刷+デザイン=タイムテーブル</a> All Right Reserved.</address></div>
+	</div>
+</div>
+<!-- フッタ終了 -->
+
+</div>
+
+<!-- ▼▼ sp-quick-menu ▼▼ -->
+<div class="sp-nomi" id="sp-quick-menu">
+<ul>
+	<li>
+		<a href="/guide/paper/index.html">
+			<img src="../images/guide/sp/img_index_paper.png" />
+			<span>用紙一覧</span>
+		</a>
+	</li>
+	
+	<li>
+		<a href="/design/index.html">
+			<img src="../images/guide/sp/img_index_paper.png" />
+			<span>デザインからのご注文</span>
+		</a>
+	</li>
+</ul>
+<script src="../Templates/common/js/svg.js"></script>
+<script>
+
+$(function(){
+  deSVG('.my_svg', true);
+});
+</script>
+</div> <!-- /sp-quick-menu -->
+	
+<!-- InstanceBeginEditable name="js" -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      //チェックボックスをクリックするとイベント発火
+
+      $("dd#select_items input[type=checkbox]").click(function () {
+        var $count = $("dd#select_items input[type=checkbox]:checked").length;
+        var $not = $("dd#select_items input[type=checkbox]").not(":checked");
+        var $limit = 1; //　チェックの上限を決める
+        //チェックが limit個(1行上) 付いたら、チェックされてないチェックボックスにdisabledを加える
+        if ($count >= $limit) {
+          $not.attr("disabled", true);
+        } else {
+          $not.attr("disabled", false);
+        }
+      });
+    </script>
+
+    <!-- InstanceEndEditable -->
+
+
+</body>
+<!-- InstanceEnd --></html>

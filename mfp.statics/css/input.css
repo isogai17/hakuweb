@@ -1,0 +1,19 @@
+form#mailformpro input,form#mailformpro textarea {
+	padding:  3px 8px;
+	font-size: 14px;
+	vertical-align: middle;
+}
+form#mailformpro select {
+	padding:  3px 8px;
+	vertical-align: middle;
+	font-size: 14px;
+}
+
+
+@media screen and (max-width: 580px) {	/* --- SP --- */
+form#mailformpro input,form#mailformpro textarea {
+	font-size: 16px;
+}
+form#mailformpro select {
+	font-size: 16px;
+}
